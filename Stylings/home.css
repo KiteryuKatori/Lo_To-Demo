@@ -6,7 +6,7 @@
 
     --bg-color: rgb(224, 255, 224);
     --main-bg-color: rgb(144, 244, 144);
-    --main-color: rgb(96, 236, 96);
+    --main-color: rgb(95, 206, 95);
 }
 
 
@@ -76,6 +76,10 @@ button {
     margin-bottom: 1rem;
 }
 
+
+.note {
+    background-color: rgb(113, 113, 202);
+}
 
 /*Nasturtium*/
 .Header.three {color: var(--Nasturtium-text-color)}
