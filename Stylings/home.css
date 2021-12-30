@@ -42,6 +42,7 @@ body {
 }
 
 button {
+    position: relative;
     width: var(--button-width);
     height: var(--button-height);
     text-align: center;
@@ -56,11 +57,40 @@ button {
     color: var(--main-color);
     font-size: 24px;
     font-weight: 800;
+    z-index: 2;
+    transition: ease 200ms;
+    overflow: hidden;
+}
+
+button:hover {
+    color: #fff;
+}
+
+button::after {
+    content: "";
+    position: absolute;
+    background-color: var(--main-color);
+    width: 0px;
+    height: 0px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    border-radius: calc(var(--button-width) + 5px);
+    z-index: -1;
+    transition: ease 0.75s;
+}
+
+button:hover:after {
+    content: "";
+    width: calc(var(--button-width) + 5px);
+    height: calc(var(--button-width) + 5px);
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
 }
 
 /* HEADER */
 .big.ass.title {
-    
     padding-top: 25px;
     font-size: 80px;
     font-weight: 1000;
@@ -78,7 +108,13 @@ button {
 
 
 .note {
-    background-color: rgb(113, 113, 202);
+    /* background-color: rgb(113, 113, 202); */
+    color: var(--main-color);
+    font-weight: 800;
+    font-size: 24px;
+    width: 60vw;
+    margin: auto;
+    margin-top: 50px;
 }
 
 /*Nasturtium*/
