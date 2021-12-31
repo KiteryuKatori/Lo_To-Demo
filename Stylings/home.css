@@ -40,16 +40,6 @@ body {
     bottom: 400px;
 }
 
-button a {
-    text-decoration: none;
-    color: var(--main-color);
-}
-
-button::hover a {
-    text-decoration: none;
-    color: #fff;
-}
-
 button {
     
     position: relative;
@@ -109,8 +99,20 @@ button:active:before {
     transition: 50ms;
 }
 
+#playbtn a {
+    text-decoration: none;
+    color: var(--main-color);
+    z-index: 0;
+    transition: 750ms ease;
+}
+
+#playbtn:hover a {
+    color: #fff;
+
+}
+
 /* HEADER */
-..title {
+.header {
     padding-top: 25px;
     font-size: 80px;
     font-weight: 1000;
@@ -118,7 +120,7 @@ button:active:before {
     margin-bottom: -1rem;
 }
 
-.small.ass.title {
+.sub-header {
     text-transform: uppercase;
     font-size: 36px;
     font-weight: 1000;
