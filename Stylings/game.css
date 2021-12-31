@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Klee+One:wght@600&family=Nunito:wght@200&family=Poiret+One&display=swap');
+
+:root {
+    --button-width: 175px;
+    --button-height: 60px;
+
+    --bg-color: rgb(224, 255, 224);
+    --main-bg-color: rgb(144, 244, 144);
+    --main-color: rgb(95, 206, 95);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.collumns {
+    background-color: rgb(129, 129, 243);
+    width: 50px;
+    height: 50px;
+}

@@ -9,7 +9,6 @@
     --main-color: rgb(95, 206, 95);
 }
 
-
 * {
     padding: 0;
     margin: 0;
@@ -41,32 +40,47 @@ body {
     bottom: 400px;
 }
 
+button a {
+    text-decoration: none;
+    color: var(--main-color);
+}
+
+button::hover a {
+    text-decoration: none;
+    color: #fff;
+}
+
 button {
+    
     position: relative;
     width: var(--button-width);
     height: var(--button-height);
     text-align: center;
     margin: 4px;
+    padding: -5px;
     position: relative;
     
-    border: 3px solid var(--main-color);
-    border-radius: 8px;
+    border: none;
+    border-radius: 18px;
+    /* border: 2px solid var(--main-color); */
     
     background-color: var(--bg-color);
 
     color: var(--main-color);
     font-size: 24px;
     font-weight: 800;
-    z-index: 2;
+    z-index: 0;
     transition: ease 200ms;
     overflow: hidden;
 }
 
 button:hover {
     color: #fff;
+    /* transition: 1.5s;
+    background-color: var(--main-color); */
 }
 
-button::after {
+button::before {
     content: "";
     position: absolute;
     background-color: var(--main-color);
@@ -75,22 +89,28 @@ button::after {
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    border-radius: calc(var(--button-width) + 5px);
+    border-radius: calc(var(--button-width) + 10px);
+
     z-index: -1;
     transition: ease 0.75s;
 }
 
-button:hover:after {
+button:hover:before {
     content: "";
-    width: calc(var(--button-width) + 5px);
-    height: calc(var(--button-width) + 5px);
+    width: calc(var(--button-width) + 10px);
+    height: calc(var(--button-width) + 10px);
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
 }
 
+button:active:before {
+    background-color: rgb(68, 175, 68);
+    transition: 50ms;
+}
+
 /* HEADER */
-.big.ass.title {
+..title {
     padding-top: 25px;
     font-size: 80px;
     font-weight: 1000;
