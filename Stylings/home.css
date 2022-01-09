@@ -65,8 +65,7 @@ button {
 
 button:hover {
     color: #fff;
-    
-    /*background-color: var(--main-color); */
+
 }
 
 button::before {
