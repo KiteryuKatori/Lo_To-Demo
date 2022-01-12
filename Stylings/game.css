@@ -67,7 +67,7 @@ body {
 #mainNavBar {
     display: block;
     background-color: var(--main-bg-color);
-    margin: 4px 0px 8px 16px;
+    margin: 8px 0px 8px 16px;
     width: calc(100vw - 32px);
     padding-bottom: 8px;
     position: relative;
@@ -145,7 +145,7 @@ body {
     height: 250%;
 }
 
-#calledBoard {
+#calledList {
     position: absolute;
     display: inline-block;
     width: calc(100% - 124px);
