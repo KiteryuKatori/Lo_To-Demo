@@ -1,13 +1,31 @@
+const board = document.querySelector("#mainContainer");
 const row = document.querySelectorAll('.row');
 const blocks = document.querySelectorAll(".block");
 
-const boardNums = [];
-const spawnedNum = [];
+const calledNums = [];
+document.getElementById("calledList").innerHTML = calledNums; //Initialize the element
 
+genBoard();
+//console.log(row[6].children[7].innerHTML);
+
+// row.children.forEach(rowSingle => {
+//     rowSingle.forEach(cell => {
+//         if (cell.innerHTML != '') {
+
+//         }
+//     });
+// });
 
 function genBoard() {
+    const boardNums = [];
+    const spawnedNum = [];
+
     for (let r = 0; r < 9; r++){
-        boardNums[r] = []; //Declare that every child of boardNums is also an array
+        boardNums[r] = []; //Declare that this is 2 dimensional Array
+        for (let c = 0; c < 9; c++) { //Reset the board 
+            boardNums[r][c] = "";
+            row[r].children[c].innerHTML = boardNums[r][c];
+        }
     
         let calledIndexes = []; //this shit reset every row
         let tempoText = `Row ${r}:`;
@@ -17,9 +35,9 @@ function genBoard() {
             calledIndexes.push(generatedNum); //0-8
             //console.log(`pushed ${generatedNum}`)
         }
-    
+
         calledIndexes.sort();
-    
+        
         for (let i = 0; i < calledIndexes.length; i++) { 
             tempoText += " " + calledIndexes[i];
         }
@@ -33,6 +51,8 @@ function genBoard() {
                 else {
                     boardNums[r][c] = genNonRepeatedNum(spawnedNum, c*10, c*10 + 9);
                 }
+                row[r].children[c].innerHTML = boardNums[r][c];
+                cellSelected(row[r].children[c]);
                 spawnedNum.push(boardNums[r][c]);
             }
             else {
@@ -40,11 +60,25 @@ function genBoard() {
             }
         }
     }
-}
-genBoard();
-console.log(boardNums);
+    console.log(boardNums);
+    
+} 
 
-//console.log(boardNums);
+
+function cellSelected(cell) {
+    if (cell == null) {
+        return;
+    }
+    cell.classList.add("exist");
+    //console.log(`This is ${cell} `)
+}
+
+function callNum() {
+    calledNums.push( genNonRepeatedNum( calledNums, 1, 100) );
+    document.getElementById("calledList").innerHTML = (calledNums+[]).replaceAll("," ," "); //refresh the element
+}
+
+
 function genNonRepeatedNum(arr, startNum, endNum) {
     let reseted = false;
     let num = randFromTo(startNum, endNum);
@@ -59,17 +93,6 @@ function genNonRepeatedNum(arr, startNum, endNum) {
     }
     return num;
 }
-
-// ARRAY METHOD (NOT ENOUGH KNOWLEDGE)
-const calledNums = [];
-document.getElementById("calledList").innerHTML = calledNums; //Initialize the element
-
-function pushEle() {
-    calledNums.push( genNonRepeatedNum( calledNums, 1, 100) );
-    document.getElementById("calledList").innerHTML = (calledNums+[]).replaceAll("," ," "); //refresh the element
-}
-//
-
 
 function randFromTo(min,max){
     return Math.floor(Math.random()*(max-min+1)+min);
