@@ -1,6 +1,6 @@
 const board = document.querySelector("#mainContainer");
 const row = document.querySelectorAll('.row');
-const blocks = document.querySelectorAll(".block");
+const cells = document.querySelectorAll(".cell");
 
 const calledNums = [];
 document.getElementById("calledList").innerHTML = calledNums; //Initialize the element
@@ -25,6 +25,7 @@ function genBoard() {
         for (let c = 0; c < 9; c++) { //Reset the board 
             boardNums[r][c] = "";
             row[r].children[c].innerHTML = boardNums[r][c];
+            cellEmpty(row[r].children[c]);
         }
     
         let calledIndexes = []; //this shit reset every row
@@ -52,7 +53,7 @@ function genBoard() {
                     boardNums[r][c] = genNonRepeatedNum(spawnedNum, c*10, c*10 + 9);
                 }
                 row[r].children[c].innerHTML = boardNums[r][c];
-                cellSelected(row[r].children[c]);
+                cellFilled(row[r].children[c]);
                 spawnedNum.push(boardNums[r][c]);
             }
             else {
@@ -61,16 +62,23 @@ function genBoard() {
         }
     }
     console.log(boardNums);
-    
+    console.log(`New board created`);
 } 
 
 
-function cellSelected(cell) {
-    if (cell == null) {
-        return;
-    }
+function cellFilled(cell) {
+    if (cell == null) return
     cell.classList.add("exist");
-    //console.log(`This is ${cell} `)
+}
+
+function cellEmpty(cell) {
+    if (cell == null) return;
+    cell.classList.remove("exist");
+}
+
+function cellEmpty(cell) {
+    if (cell == null) return;
+    cell.classList.remove("exist");
 }
 
 function callNum() {
