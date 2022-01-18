@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Klee+One:wght@600&family=Nunito:wght@200&family=Poiret+One&display=swap');
+
+:root {
+    --button-width: 175px;
+    --button-height: 60px;
+
+    --bg-color: rgb(224, 255, 224);
+    --main-bg-color: rgb(144, 244, 144);
+    --main-color: rgb(95, 206, 95);
+
+    --main-modal-color: rgb(68, 160, 114);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    text-decoration: none;
+    list-style: none;
+    list-style-type: none;
+    font-family: "Nunito";
+}
+
+.container {
+    position: relative;
+    background-color: var(--main-bg-color);
+    display: block;
+    margin-top: 50px;
+    width: 320px;
+    height: 480px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+/*GLOBAL BUTTON SETTINGS*/
+#btnList {
+    text-align: center;
+    bottom: 400px;
+}
+
+button {
+    position: relative;
+    width: var(--button-width);
+    height: var(--button-height);
+    text-align: center;
+    margin: 4px;
+    padding: -5px;
+    position: relative;
+    
+    border: none;
+    border-radius: 18px;
+    /* border: 2px solid var(--main-color); */
+    
+    background-color: var(--bg-color);
+
+    color: var(--main-color);
+    font-size: 24px;
+    font-weight: 800;
+    z-index: 0;
+    transition: ease 300ms;
+    overflow: hidden;
+}
+
+button:hover {
+    color: #fff;
+
+}
+
+button::before {
+    content: "";
+    position: absolute;
+    background-color: var(--main-color);
+    width: 0px;
+    height: 0px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    border-radius: calc(var(--button-width) + 10px);
+
+    z-index: -1;
+    transition: ease 0.75s;
+}
+
+button:hover:before {
+    content: "";
+    width: calc(var(--button-width) + 10px);
+    height: calc(var(--button-width) + 10px);
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+button:active:before {
+    background-color: rgb(68, 175, 68);
+    transition: 50ms;
+}
+
+#playbtn a{
+    text-decoration: none;
+    color: var(--main-color) ;
+    z-index: 0;
+    transition: 750ms ease;
+}
+
+#playbtn:hover a {
+    color: #fff;
+
+}
+
+/* HEADER */
+.header {
+    padding-top: 25px;
+    font-size: 80px;
+    font-weight: 1000;
+    color: #fff;
+    margin-bottom: -1rem;
+}
+
+.sub-header {
+    text-transform: uppercase;
+    font-size: 36px;
+    font-weight: 1000;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.note {
+    /* background-color: rgb(113, 113, 202); */
+    text-align: center;
+    color: var(--main-color);
+    font-weight: 800;
+    font-size: 24px;
+    width: 90vw;
+    margin: auto;
+    margin-top: 40px;
+}
+
+
+/* MODAL */
+#modalList {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.25);
+    text-align: center;
+    display: none;
+}
+
+#modalList.active {
+    display: flex;
+}
+
+#modalList .modal {
+    position: absolute;
+    right: 0;
+    display: flex;
+    width: 87.5vw;
+    height: 85vh;
+    margin: 5vh 5vw 10vh 5vw;
+    background-color: var(--main-modal-color);
+    color: white;
+    flex-direction: column;
+    border-radius: 8px;
+    display: none;
+}
+
+#modalList .modal.active {
+    display: flex;
+}
+
+.modal .modalHeader {
+    position: relative;
+}
+
+.modal .modalHeader h2{
+    margin-top: 40px;
+}
+
+.modal .modalHeader .closeModalBtn{
+    position: relative;
+    /* background-color: rgb(252, 97, 86); */
+    float: right;
+    margin: -84px 8px 0 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modal .modalHeader .closeModalBtn:hover {
+    background-color: rgb(252, 97, 86);
+}
+
+.modal .modalHeader .closeModalBtn::before, .modal .modalHeader .closeModalBtn::after{
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 36px;
+    border-radius: 4px;
+    background-color: rgb(110, 245, 177);
+    transform: rotate(45deg);
+}
+
+.modal .modalHeader .closeModalBtn::after {
+    transform: rotate(-45deg);
+}
+
+.modal .modalContent {
+    margin: 12px 5% 20px 5%;
+    /* background-color: black; */
+    text-align: left;
+}
+
+.modal #guide .modalContent p {
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+.modal .modalFooter {
+    position: absolute;
+    /* background-color: blue; */
+    width: 80%;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* .modal#aboutModal, */
+.modalContent button{
+    border-radius: 4px;
+    width: calc(100% - 8px);
+    height: 100px;
+    transition: ease 300ms;;
+}
+
+/* .modal#aboutModal, */
+.modalContent button a{
+    color: var(--main-color);
+    text-decoration: none;
+    transition: ease 300ms;
+}
+
+/* .modal#aboutModal, */
+.modalContent button a i.ti-github{
+    margin-right: 12px;
+}
+
+/* .modal#aboutModal, */
+.modalContent button a i{
+    margin-right: 4px;
+}
+
+/* .modal#aboutModal, */
+.modalContent button:hover:before, .modal#aboutModal .modalContent button a:hover:before{
+    width: 350px;
+    height: 350px;
+}
+
+/* .modal#aboutModal, */
+.modalContent button:hover a{
+    color: white;
+}

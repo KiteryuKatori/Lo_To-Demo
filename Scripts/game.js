@@ -37,6 +37,8 @@ function genBoard() {
             //console.log(`pushed ${generatedNum}`)
         }
 
+
+
         calledIndexes.sort();
         
         for (let i = 0; i < calledIndexes.length; i++) { 
@@ -88,7 +90,6 @@ function callNum() {
 
 
 function genNonRepeatedNum(arr, startNum, endNum) {
-    let reseted = false;
     let num = randFromTo(startNum, endNum);
     for (let k = 0; k < arr.length; k++) { //Check repeated
         if (arr[k] == num) {
@@ -102,7 +103,7 @@ function genNonRepeatedNum(arr, startNum, endNum) {
     return num;
 }
 
-function randFromTo(min,max){
+function randFromTo(min, max){
     return Math.floor(Math.random()*(max-min+1)+min);
     //To genereate a number between 0-1
     // Math.random();

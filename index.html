@@ -15,31 +15,90 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
     <!--Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="./Stylings/home.css"></link>
+    <link rel="stylesheet" type="text/css" href="./Stylings/homeMobile.css"></link>
 
-    
+    <!-- ThemifyIcons -->
+    <link rel="stylesheet" href="..\Assets\icons\themify-icons\themify-icons.css">
 </head>
 <body>
      <!-- Code của Phan Vũ Tuấn Anh, nhớ để nguồn nhé C: -->
     <div class = "container">
         <h1 class="header">Lô Tô</h1>
         <h1 class="sub-header">The Game</h1>
-        <div class="btn-List">
+        <div id="btnList">
             <a href="./Pages/game.html"><button id="playbtn" href="./Pages/game.html">Chơi</button></a>
-            <button id="guidebtn">Hướng dẫn</button>
-            <button id="aboutbtn">Về tớ</button>
-            <button id="cmt">Góp ý</button>
+            <button id="guideBtn">Hướng dẫn</button>
+            <button id="aboutBtn">Về tớ</button>
+            <button id="cmtBtn">Góp ý</button>
         </div>
-        
+
+        <div id="modalList" >
+
+            <div class="modal" id="guideModal">
+                <div class="modalHeader">
+                    <h2>Hướng dẫn chơi</h2>
+                    <div class="closeModalBtn"></div>
+                </div>
+
+                <div class="modalContent">
+                    <p>Số lượng người chơi tối thiểu: 3 người.</p>
+                    <p>Đây là hướng dẫn cho những  bạn chưa biết chơi, còn bạn nào rõ rồi thì cứ thoải mái skip qua nhé.</p>
+                    <p>Đầu tiên, người chơi sẽ chọn ra cho mình 1 phiếu lô tô để chơi và bầu ra 1 người để gọi số lô tô(có thể tiếp tục chơi hoặc chỉ bấm gọi).</p>
+                    <p>Người được chọn sẽ bấm Gọi số rồi đọc số đấy lên, người chơi nào có số vừa được đọc thì sẽ đánh dấu vào phiếu của mình.</p>
+                    <p>Người chơi đầu tiên đánh được 5 số(đã được gọi) trên 1 hàng ngang và hô "Kinh" thì người đấy chiến thắng. Nếu bạn đã chiến thắng mà không hô "Kinh" trước khi đến lượt người sau hô thì chiến thắng của bạn sẽ không được ghi nhận.</p>
+                    <p>Vật phẩm cá cược thì tự chọn nhé C:</p>
+                </div>
+                
+                <div class="modalFooter">
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="modal" id="aboutModal">
+                <div class="modalHeader">
+                    <h2>Thông tin thêm về tớ</h2>
+                    <div class="closeModalBtn"></div>
+                </div>
+
+                <div class="modalContent">
+                    <p>Cũng không có gì đáng nói cho lắm nên là...</p>
+                    <button><a href="https://www.facebook.com/phanvutuananh241203"><i class="ti-facebook"></i> Facebook</a></button>
+                    <button><a href="https://github.com/KiteryuKatori"><i class="ti-github"></i>Github</a></button>
+                    <button><a href="https://drive.google.com/file/d/1EDg2ujhz0E0BAZtA8jR4wnMBjFe7dm7T/view?usp=sharing" style="font-size: 20px; padding: 0px 12px;"><i class="ti-info-alt"></i>Đây là chiếc CV gần nhất của tớ cho ai muốn coi</a></button>
+                    <button><a href="#"><i class="ti-time"></i>Coming Soon~~</a></button>
+                </div>
+                
+                <div class="modalFooter">
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="modal" id="cmtModal">
+                <div class="modalHeader">
+                    <h2>Góp ý</h2>
+                    <div class="closeModalBtn"></div>
+                </div>
+
+                <div class="modalContent">
+                    <p>Mình chưa biết làm form nên có góp ý gì thì các bạn ghé FB của mình rồi ib nhé =)))</p>
+                    <button><a href="https://www.facebook.com/phanvutuananh241203"><i class="ti-facebook"></i> Facebook</a></button>
+                </div>
+                
+                <div class="modalFooter">
+                    <p></p>
+                </div>
+            </div>
+
+        </div>
     </div>
     
     <!-- Code của Phan Vũ Tuấn Anh, xin đừng bê đi không ghi nguồn -->
 
     <div class="note">
-        <p>Một chiếc game bé nhỏ đem lại niềm vui ngày Tết cho những người bạn lâu ngày chưa được gặp nhau</p>
+        <p>Một chiếc game bé nhỏ đem lại niềm vui ngày Tết mùa dịch</p>
     </div>
     
-    <!-- Đều là Content Creator, các bạn đừng ăn cắp code mà hãy ghi credit đầy đủ nhé -->
+    <!-- Đều là Web Dev, nếu có copy code hãy ghi credit đầy đủ + báo mình 1 tiếng nhé -->
 
      
 
