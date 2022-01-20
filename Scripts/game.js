@@ -95,7 +95,7 @@ function cellSelect(cell) {
 }
 
 function callNum() {
-    calledNums.push( genNonRepeatedNum( calledNums, 1, 100) );
+    calledNums.push( genNonRepeatedNum(calledNums, 1, 89) );
     document.getElementById("calledList").innerHTML = (calledNums+[]).replaceAll("," ," "); //refresh the element
 }
 
