@@ -7,6 +7,7 @@
     --bg-color: #c4fcc4;
     --main-bg-color: #90F490;
     --main-color: #5FCD5F;
+    --mark-color: #00A7E1;
 }
 
 * {
@@ -55,7 +56,7 @@ body {
     flex: 1;
     font-size: 24px;
     line-height: 200%;
-    cursor: pointer;
+    cursor: none;
     border: 1px solid var(--main-bg-color);
 }
 
@@ -75,7 +76,20 @@ body {
     color: var(--main-color);
     border: 1px solid var(--main-color);
     background-color: var(--bg-color); 
-    /* cursor: ; */
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.cell.exist.selected::after {
+    position: absolute;
+    content: "";
+    width: 34px;
+    height: 34px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    border-radius: 32px;
+    box-shadow: 0 0 0 4px var(--mark-color);
 }
 
 #mainNavBar {

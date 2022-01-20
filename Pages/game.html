@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <!--Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="../Stylings/game.css"></link>
+    <link rel="stylesheet" type="text/css" href="../Stylings/gameMobile.css"></link>
 
     <!-- ThemifyIcons -->
     <link rel="stylesheet" href="..\Assets\icons\themify-icons\themify-icons.css">
@@ -22,6 +22,16 @@
         <!-- div.row*9>div.col-1*9-->
         <div class="board">  
             <div class="row first">
+                <!-- <div class="cell selected"></div>
+                <div class="cell selected"></div>
+                <div class="cell selected"></div>
+                <div class="cell selected"></div>
+                <div class="cell selected"></div>
+                <div class="cell selected"></div>
+                <div class="cell selected"></div>
+                <div class="cell selected"></div>
+                <div class="cell selected"></div> -->
+
                 <div class="cell"></div>
                 <div class="cell"></div>
                 <div class="cell"></div>
@@ -141,6 +151,7 @@
                     <!-- https://www.facebook.com/phanvutuananh241203 -->
                 </button>
                 <button class="genBoard" onclick="genBoard()">Đổi bảng</button>
+                <button class="clrBoard" onclick="clrBoard()">Dọn bảng</button>
             </nav>
         </div>
     </div>

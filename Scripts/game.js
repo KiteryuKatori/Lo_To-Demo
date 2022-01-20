@@ -1,6 +1,6 @@
 const board = document.querySelector("#mainContainer");
 const row = document.querySelectorAll('.row');
-const cells = document.querySelectorAll(".cell");
+// const cells = document.querySelectorAll(".cell");
 
 const calledNums = [];
 document.getElementById("calledList").innerHTML = calledNums; //Initialize the element
@@ -8,13 +8,20 @@ document.getElementById("calledList").innerHTML = calledNums; //Initialize the e
 genBoard();
 //console.log(row[6].children[7].innerHTML);
 
-// row.children.forEach(rowSingle => {
-//     rowSingle.forEach(cell => {
-//         if (cell.innerHTML != '') {
+row.forEach(Row => {
+    Row.childNodes.forEach(cell => {
+        cell.addEventListener("click", () =>{
+            cellSelect(cell);
+        })
+    });
+});
 
-//         }
-//     });
-// });
+// closeModalList.forEach(btn => {
+//     btn.addEventListener("click", () => {
+//         //console.log(`${btn.parentElement}`);
+//         closeModal(document.querySelector(`#${btn.parentElement.parentElement.id}`));
+//     })
+// })
 
 function genBoard() {
     const boardNums = [];
@@ -37,14 +44,12 @@ function genBoard() {
             //console.log(`pushed ${generatedNum}`)
         }
 
-
-
         calledIndexes.sort();
         
-        for (let i = 0; i < calledIndexes.length; i++) { 
-            tempoText += " " + calledIndexes[i];
-        }
-        console.log(tempoText);
+        // for (let i = 0; i < calledIndexes.length; i++) { 
+        //     tempoText += " " + calledIndexes[i];
+        // }
+        // console.log(tempoText);
 
         for (let c = 0; c < 9; c++) {
             if (calledIndexes.includes(c)) {
@@ -63,9 +68,9 @@ function genBoard() {
             }
         }
     }
-    console.log(boardNums);
-    console.log(`New board created`);
+    // console.log(boardNums);
 } 
+
 
 
 function cellFilled(cell) {
@@ -76,17 +81,34 @@ function cellFilled(cell) {
 function cellEmpty(cell) {
     if (cell == null) return;
     cell.classList.remove("exist");
+    cell.classList.remove("selected");
 }
 
-function cellEmpty(cell) {
+function cellSelect(cell) {
     if (cell == null) return;
-    cell.classList.remove("exist");
+    if(!cell.classList.contains("selected")) {
+        cell.classList.add("selected");
+    }
+    else {
+        cell.classList.remove("selected");
+    }
 }
 
 function callNum() {
     calledNums.push( genNonRepeatedNum( calledNums, 1, 100) );
     document.getElementById("calledList").innerHTML = (calledNums+[]).replaceAll("," ," "); //refresh the element
 }
+
+function clrBoard() {
+    for (let r = 0; r < 9; r++){
+        for (let c = 0; c < 9; c++) { //Clear the markers 
+            row[r].children[c].classList.remove("selected");;
+        }
+    }
+}
+
+
+
 
 
 function genNonRepeatedNum(arr, startNum, endNum) {

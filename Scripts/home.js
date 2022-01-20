@@ -12,6 +12,7 @@ btnList.childNodes.forEach(btn => {
         openModal(document.querySelector(`#${modalID}`));
     })
 })
+
 closeModalList.forEach(btn => {
     btn.addEventListener("click", () => {
         //console.log(`${btn.parentElement}`);
