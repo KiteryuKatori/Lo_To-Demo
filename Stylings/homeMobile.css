@@ -215,6 +215,7 @@ button:active:before {
     margin: 12px 5% 20px 5%;
     /* background-color: black; */
     text-align: left;
+    overflow: scroll;
 }
 
 .modal #guide .modalContent p {
