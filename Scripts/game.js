@@ -2,12 +2,20 @@ const board = document.querySelector("#mainContainer");
 const row = document.querySelectorAll('.row');
 // const cells = document.querySelectorAll(".cell");
 
+const availNums = [];
 const calledNums = [];
-document.getElementById("calledList").innerHTML = calledNums; //Initialize the element
+const calledList = document.getElementById("calledList");
+
+calledList.innerHTML = calledNums; //Initialize the element
+
+for (let i = 1; i< 91; i++) {
+    availNums.push(i);
+}
 
 genBoard();
 //console.log(row[6].children[7].innerHTML);
 
+//Set selectable cells
 row.forEach(Row => {
     Row.childNodes.forEach(cell => {
         cell.addEventListener("click", () =>{
@@ -46,15 +54,18 @@ function genBoard() {
 
         calledIndexes.sort();
         
-        // for (let i = 0; i < calledIndexes.length; i++) { 
-        //     tempoText += " " + calledIndexes[i];
-        // }
-        // console.log(tempoText);
+        for (let i = 0; i < calledIndexes.length; i++) { 
+            tempoText += " " + calledIndexes[i];
+        }
+        console.log(tempoText);
 
         for (let c = 0; c < 9; c++) {
             if (calledIndexes.includes(c)) {
                 if (c == 0) {
                     boardNums[r][c] = genNonRepeatedNum(spawnedNum, c*10 + 1, c*10 + 9);
+                }
+                else if (c == 8){
+                    boardNums[r][c] = genNonRepeatedNum(spawnedNum, c*10, c*10 + 10);
                 }
                 else {
                     boardNums[r][c] = genNonRepeatedNum(spawnedNum, c*10, c*10 + 9);
@@ -95,9 +106,14 @@ function cellSelect(cell) {
 }
 
 function callNum() {
-    calledNums.push( genNonRepeatedNum(calledNums, 1, 89) );
+    calledNums.push( genNonRepeatedNum(calledNums, 1, 90) );
     document.getElementById("calledList").innerHTML = (calledNums+[]).replaceAll("," ," "); //refresh the element
+    calledList.scrollTop = calledList.scrollHeight;
 }
+
+// for (let i = 0; i < 50; i++) {
+//     callNum();
+// }
 
 function clrBoard() {
     for (let r = 0; r < 9; r++){
@@ -107,9 +123,15 @@ function clrBoard() {
     }
 }
 
-
-
-
+function newGame() {
+    clrBoard();
+    for (var keys in calledNums){
+        if (calledNums.hasOwnProperty(keys)){
+            delete calledNums[keys];
+        }
+    }
+    document.getElementById("calledList").innerHTML = (calledNums+[]).replaceAll("," ," ");
+}
 
 function genNonRepeatedNum(arr, startNum, endNum) {
     let num = randFromTo(startNum, endNum);
