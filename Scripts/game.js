@@ -79,7 +79,7 @@ function genBoard() {
             }
         }
     }
-    // console.log(boardNums);
+    console.log(boardNums);
 } 
 
 
@@ -106,7 +106,7 @@ function cellSelect(cell) {
 }
 
 function callNum() {
-    calledNums.push( genNonRepeatedNum(calledNums, 1, 90) );
+    genNumForCalling(calledNums, availNums);
     document.getElementById("calledList").innerHTML = (calledNums+[]).replaceAll("," ," "); //refresh the element
     calledList.scrollTop = calledList.scrollHeight;
 }
@@ -118,7 +118,7 @@ function callNum() {
 function clrBoard() {
     for (let r = 0; r < 9; r++){
         for (let c = 0; c < 9; c++) { //Clear the markers 
-            row[r].children[c].classList.remove("selected");;
+            row[r].children[c].classList.remove("selected");
         }
     }
 }
@@ -137,15 +137,22 @@ function genNonRepeatedNum(arr, startNum, endNum) {
     let num = randFromTo(startNum, endNum);
     for (let k = 0; k < arr.length; k++) { //Check repeated
         if (arr[k] == num) {
-            // console.log(`Reset cuz ${num} = arr[${k}]`);
+            //console.log(`Reset cuz ${num} = arr[${k}]`);
             //console.log(`${arr[k]} repeated`)
             num = randFromTo(startNum, endNum);
             //console.log(`New num is ${num}`)
-            k = -1; //reset counter to -1 cuz if it is 0 then when for loop reset, k will be 1 and miss the 1st element
+            k = -1; //Reset the counter to -1 because if k is 0 then when for-loop looped, k++ will be 1 and miss the 1st element(k = 0)
         }
     }
     return num;
 }
+
+function genNumForCalling(mainArr, extArr) {
+    let thatNum = randFromTo(0, extArr.length);
+    mainArr.push(thatNum);
+    extArr.splice(extArr.indexOf(thatNum), 1);
+}
+//genNumForCalling(calledNums, availNums);
 
 function randFromTo(min, max){
     return Math.floor(Math.random()*(max-min+1)+min);

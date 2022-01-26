@@ -160,7 +160,7 @@ button:active:before {
     position: absolute;
     right: 0;
     display: flex;
-    width: 87.5vw;
+    width: 90vw;
     height: 85vh;
     margin: 5vh 5vw 10vh 5vw;
     background-color: var(--main-modal-color);
@@ -186,6 +186,8 @@ button:active:before {
     position: relative;
     /* background-color: rgb(252, 97, 86); */
     float: right;
+    right: -8px;
+    top: -4px;
     margin: -84px 8px 0 0;
     width: 32px;
     height: 32px;
@@ -203,12 +205,13 @@ button:active:before {
     width: 4px;
     height: 36px;
     border-radius: 4px;
-    background-color: rgb(110, 245, 177);
-    transform: rotate(45deg);
+    background-color: rgb(137, 192, 165);
+    transform: rotate(45deg) translateX(-3px) translateY(1px);
 }
 
 .modal .modalHeader .closeModalBtn::after {
-    transform: rotate(-45deg);
+    transform: rotate(-45deg) translateX(0px) translateY(-2px);
+    /* background-color: blueviolet; */
 }
 
 .modal .modalContent {

@@ -196,3 +196,131 @@ body {
         position: relative;
     } */
 }
+
+/* MODAL */
+#modalList {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.25);
+    text-align: center;
+    display: none;
+}
+
+#modalList.active {
+    display: flex;
+}
+
+#modalList .modal {
+    position: absolute;
+    right: 0;
+    display: flex;
+    width: 87.5vw;
+    height: 85vh;
+    margin: 5vh 5vw 10vh 5vw;
+    background-color: var(--main-modal-color);
+    color: white;
+    flex-direction: column;
+    border-radius: 8px;
+    display: none;
+}
+
+#modalList .modal.active {
+    display: flex;
+}
+
+.modal .modalHeader {
+    position: relative;
+}
+
+.modal .modalHeader h2{
+    margin-top: 40px;
+}
+
+.modal .modalHeader .closeModalBtn{
+    position: relative;
+    /* background-color: rgb(252, 97, 86); */
+    float: right;
+    margin: -84px 8px 0 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modal .modalHeader .closeModalBtn:hover {
+    background-color: rgb(252, 97, 86);
+}
+
+.modal .modalHeader .closeModalBtn::before, .modal .modalHeader .closeModalBtn::after{
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 36px;
+    border-radius: 4px;
+    background-color: rgb(110, 245, 177);
+    transform: rotate(45deg);
+}
+
+.modal .modalHeader .closeModalBtn::after {
+    transform: rotate(-45deg);
+}
+
+.modal .modalContent {
+    margin: 12px 5% 20px 5%;
+    /* background-color: black; */
+    text-align: left;
+    overflow: scroll;
+}
+
+.modal #guide .modalContent p {
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+.modal .modalFooter {
+    position: absolute;
+    /* background-color: blue; */
+    width: 80%;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* .modal#aboutModal, */
+.modalContent button{
+    border-radius: 4px;
+    width: calc(100% - 8px);
+    height: 100px;
+    transition: ease 300ms;;
+}
+
+/* .modal#aboutModal, */
+.modalContent button a{
+    color: var(--main-color);
+    text-decoration: none;
+    transition: ease 300ms;
+}
+
+/* .modal#aboutModal, */
+.modalContent button a i.ti-github{
+    margin-right: 12px;
+}
+
+/* .modal#aboutModal, */
+.modalContent button a i{
+    margin-right: 4px;
+}
+
+/* .modal#aboutModal, */
+.modalContent button:hover:before, .modal#aboutModal .modalContent button a:hover:before{
+    width: 350px;
+    height: 350px;
+}
+
+/* .modal#aboutModal, */
+.modalContent button:hover a{
+    color: white;
+}
