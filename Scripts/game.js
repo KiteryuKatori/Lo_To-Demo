@@ -1,6 +1,10 @@
+export { callNum, kinhBoard, genBoard, clrBoard, newGame } //Export all functions
+
 const board = document.querySelector("#mainContainer");
 const row = document.querySelectorAll('.row');
 // const cells = document.querySelectorAll(".cell");
+
+import { preBoardList } from "./preBoards.js";
 
 const availNums = [];
 for (let i = 1; i< 91; i++) {availNums.push(i);}
@@ -22,35 +26,78 @@ row.forEach(Row => {
     });
 });
 
-// closeModalList.forEach(btn => {
-//     btn.addEventListener("click", () => {
-//         //console.log(`${btn.parentElement}`);
-//         closeModal(document.querySelector(`#${btn.parentElement.parentElement.id}`));
-//     })
-// })
+// BUTTON ACTIVATED FUNCS
+function callNum() {
+    genNumForCalling(calledNums, availNums);
+    document.getElementById("calledList").innerHTML = (calledNums+[]).replaceAll("," ," "); //refresh the element
+    calledList.scrollTop = calledList.scrollHeight;
+}
+
+function kinhBoard() {
+    const modal = 0;
+    ModalActivating(modal);
+}
 
 function genBoard() {
     const boardNums = [];
     const spawnedNum = [];
 
+    let chosenNum = randFromTo(0, preBoardList.length);
+    let chosenBoard = preBoardList[chosenNum];
+    console.log(`Board ${chosenNum} activated.`);
+
     for (let r = 0; r < 9; r++){
         boardNums[r] = []; //Declare that this is 2 dimensional Array
+
+        // let filledLeft = 0;
+        // let emptiedLeft = 4;
+        // let doubleEmptiedLeft = 1;
+
         for (let c = 0; c < 9; c++) { //Reset the board 
             boardNums[r][c] = "";
             row[r].children[c].innerHTML = boardNums[r][c];
             cellEmpty(row[r].children[c]);
         }
-    
-        let calledIndexes = []; //this shit reset every row
+
+
+
+        let calledIndexes = chosenBoard[r]; //this shit reset every row
+
+
+
         let tempoText = `Row ${r}:`;
     
-        for (let i = 0; i < 5; i++) { 
-            let generatedNum = genNonRepeatedNum(calledIndexes, 0, 8);
-            calledIndexes.push(generatedNum); //0-8
-            //console.log(`pushed ${generatedNum}`)
-        }
+        // for (let i = 0; i < 5; i++) { //Add 5 indexes to the row for filling
+        //     let generatedNum = genNonRepeatedNum(calledIndexes, 0, 8);
+        //     calledIndexes.push(generatedNum); //0-8
+        //     //console.log(`pushed ${generatedNum}`)
+        // }
+        // var randBool = Math.random() < 0.5; true if < 0.5.
 
-        calledIndexes.sort();
+        // Reqs:
+        //     - 5 filledCells, 4 emptiedCells.
+        //     - Maximum 2 double EmptiedCells.
+        //     - Its way easier starting with a filledCell. EmptiedCells are killing me.
+        //     - FUCKING DYNAMIC PROGRAMMING IS NEEDED
+
+        // tests?:
+        // XXO XXO XOO    XXO XXO OXO    XXO XOX XOO
+        // XXO OXX OOX    XOO XOX OXX    XOO XOX XOX
+        // OOX XOO no     OOX XOX XOX    OXO OXX OXX
+        // OXX OOX XOX    OXX OOX XXO    OXX OOX OXX
+        // OXO OXX XOX    OXO OXX XOX
+        // ...
+        // THIS SHIT WILL NEVER END
+        // .
+        // .
+        // .
+        // Nah just kidding, about 40+ and u'll be cool
+
+        // Hey, I'm fuking tired, how about making preBoards and then learn Algorithms later?
+        // Good idea... let's.
+        //Why am I here just to suffer to the fact that I am not capable of doing this Project?
+
+        calledIndexes.sort(); //Fuck off, I dont need u anymore
         
         for (let i = 0; i < calledIndexes.length; i++) { 
             tempoText += " " + calledIndexes[i];
@@ -80,8 +127,28 @@ function genBoard() {
     console.log(boardNums);
 } 
 
+function clrBoard() {
+    for (let r = 0; r < 9; r++){
+        for (let c = 0; c < 9; c++) { //Clear the markers 
+            row[r].children[c].classList.remove("selected");
+        }
+    }
+}
+
+function newGame() {
+    clrBoard();
+    for (var keys in calledNums){
+        if (calledNums.hasOwnProperty(keys)){
+            delete calledNums[keys];
+        }
+    }
+    document.getElementById("calledList").innerHTML = (calledNums+[]).replaceAll("," ," ");
+}
 
 
+
+
+// Cells + modals manip
 function cellFilled(cell) {
     if (cell == null) return
     cell.classList.add("exist");
@@ -103,36 +170,38 @@ function cellSelect(cell) {
     }
 }
 
-function callNum() {
-    genNumForCalling(calledNums, availNums);
-    document.getElementById("calledList").innerHTML = (calledNums+[]).replaceAll("," ," "); //refresh the element
-    calledList.scrollTop = calledList.scrollHeight;
-}
-
-// for (let i = 0; i < 50; i++) {
-//     callNum();
-// }
-
-function clrBoard() {
-    for (let r = 0; r < 9; r++){
-        for (let c = 0; c < 9; c++) { //Clear the markers 
-            row[r].children[c].classList.remove("selected");
-        }
+function ModalActivating(modal) {
+    
+    if(!modal.classList.contains("active")) {
+        modal.classList.add("active");
+        modal.parentElement.add("active");
+    }
+    else {
+        modal.classList.remove("active");
+        modal.parentElement.classList.remove("active");
     }
 }
 
-function newGame() {
-    clrBoard();
-    for (var keys in calledNums){
-        if (calledNums.hasOwnProperty(keys)){
-            delete calledNums[keys];
-        }
-    }
-    document.getElementById("calledList").innerHTML = (calledNums+[]).replaceAll("," ," ");
-}
+// closeModalList.forEach(btn => {
+//     btn.addEventListener("click", () => {
+//         //console.log(`${btn.parentElement}`);
+//         closeModal(document.querySelector(`#${btn.parentElement.parentElement.id}`));
+//     })
+// })
 
+
+
+
+
+// SMOL FUNCTIONS
 function genNonRepeatedNum(arr, startNum, endNum) {
+
+    let filledCount = 0;
+    let emptiedCount = 0;
+
     let num = randFromTo(startNum, endNum);
+
+    
     for (let k = 0; k < arr.length; k++) { //Check repeated
         if (arr[k] == num) {
             //console.log(`Reset cuz ${num} = arr[${k}]`);
@@ -151,30 +220,21 @@ function genNumForCalling(mainArr, extArr) {
     extArr.splice(extArr.indexOf(extArr[thatNum]), 1);
     
 }
-//genNumForCalling(calledNums, availNums);
+
 
 function randFromTo(min, max){
-    return Math.floor(Math.random()*(max-min+1)+min);
+    return Math.floor( Math.random() * (max-min+1) + min );
     //To genereate a number between 0-1
     // Math.random();
+
     // To generate a number that is a whole number rounded down
     // Math.floor(Math.random())
+
     // To generate a number that is a whole number rounded down between 1 and 10
     // Math.floor(Math.random() * 10) + 1 
     //the + 1 makes it so its not 0.
 }
 
-
-
-
-/*
-// STRING METHOD (NOT RECOMMENDED)
-let numList = "";
-document.getElementById("calledList").innerHTML = numList;
-function addNum() {
-    numList += " " + randFromTo(1, 100);
-    document.getElementById("calledList").innerHTML = numList;
-}*/
 
 // Chúc mọi người 1 năm 2022 vui vẻ, đong đầy niềm vui trong cuộc sống và tràn ngập hạnh phúc bên gia đình cùng người thân và bạn bè, các mối quan hệ ngày càng mở rộng theo chiều hướng chất lượng đi đầu, khối lượng ngay sau.
 
