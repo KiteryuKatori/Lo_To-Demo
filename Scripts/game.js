@@ -3,17 +3,15 @@ const row = document.querySelectorAll('.row');
 // const cells = document.querySelectorAll(".cell");
 
 const availNums = [];
+for (let i = 1; i< 91; i++) {availNums.push(i);}
+
 const calledNums = [];
 const calledList = document.getElementById("calledList");
 
 calledList.innerHTML = calledNums; //Initialize the element
 
-for (let i = 1; i< 91; i++) {
-    availNums.push(i);
-}
-
 genBoard();
-//console.log(row[6].children[7].innerHTML);
+
 
 //Set selectable cells
 row.forEach(Row => {
@@ -148,9 +146,10 @@ function genNonRepeatedNum(arr, startNum, endNum) {
 }
 
 function genNumForCalling(mainArr, extArr) {
-    let thatNum = randFromTo(0, extArr.length);
-    mainArr.push(thatNum);
-    extArr.splice(extArr.indexOf(thatNum), 1);
+    let thatNum = randFromTo(0, extArr.length - 1);
+    mainArr.push(extArr[thatNum]);
+    extArr.splice(extArr.indexOf(extArr[thatNum]), 1);
+    
 }
 //genNumForCalling(calledNums, availNums);
 
@@ -177,12 +176,8 @@ function addNum() {
     document.getElementById("calledList").innerHTML = numList;
 }*/
 
-// Chúc chị 1 năm 2022 vui vẻ, tràn đầy niềm vui và hạnh phúc bên gia đình cùng người thân và bạn bè xung quanh nhé =))))
+// Chúc mọi người 1 năm 2022 vui vẻ, đong đầy niềm vui trong cuộc sống và tràn ngập hạnh phúc bên gia đình cùng người thân và bạn bè, các mối quan hệ ngày càng mở rộng theo chiều hướng chất lượng đi đầu, khối lượng ngay sau.
 
-// Nếu chị đã có ngiu rồi thì chúc chị và anh/chị ấy sẽ luôn hạnh phúc và cùng nhau tiến triển tốt hơn nhé. Còn nếu chưa thì tất nhiên là chúc chị năm nay sớm có 1 người để bầu bạn rồi =))))))(tất nhiên là người đó phải thật xứng đáng với chị nữa =))) )
+// Chúc mọi người sẽ luôn được đồng hành với những con người thật sự xứng đáng trên con đường đời của mình, sẽ luôn nhìn ra được cơ hội hiện hữu quanh mình để phát triển bản thân, thăng tiến trong công việc.
 
-// Và trong công việc thì em chúc chị sẽ liên tục nhận được các cơ hội thăng tiến và có quan hệ tốt với đồng nghiệp lẫn các sếp =)))
-
-// À khum chỉ là năm 2022, mà là mọi năm sau này luôn C:
-
-// Và quan trọng nhất là luôn hạnh phúc, yêu thương bản thân, luôn cảm thấy may mắn trong mọi việc trong cuộc sống nhe chị 
+// Và quan trọng nhất là sẽ luôn hạnh phúc và cảm thấy không hối hận với những quyết định mà bản thân mình đã đưa ra, sẽ luôn sống hết mình để được cảm nhận được cuộc sống tươi đẹp này, luôn là chính mình.
