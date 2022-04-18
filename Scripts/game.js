@@ -1,18 +1,20 @@
-export { callNum, kinhBoard, genBoard, clrBoard, newGame } //Export all functions
+// export { callNum, kinhBoard, genBoard, clrBoard, newGame } //Export all functions
 
 const board = document.querySelector("#mainContainer");
 const row = document.querySelectorAll('.row');
 // const cells = document.querySelectorAll(".cell");
 
-import { preBoardList } from "./preBoards.js";
+// import { preBoardList } from "./preBoards.js";
 
 const availNums = [];
-for (let i = 1; i< 91; i++) {availNums.push(i);}
+for (let i = 1; i< 91; i++) {
+    availNums.push(i);
+}
 
 const calledNums = [];
-const calledList = document.getElementById("calledList");
-
-calledList.innerHTML = calledNums; //Initialize the element
+const calledNumList = document.getElementById("calledList");
+// console.log(calledNumList);
+calledNumList.innerHTML = calledNums; //Initialize the element
 
 genBoard();
 
@@ -29,8 +31,8 @@ row.forEach(Row => {
 // BUTTON ACTIVATED FUNCS
 function callNum() {
     genNumForCalling(calledNums, availNums);
-    document.getElementById("calledList").innerHTML = (calledNums+[]).replaceAll("," ," "); //refresh the element
-    calledList.scrollTop = calledList.scrollHeight;
+    calledNumList.innerHTML = (calledNums+[]).replaceAll("," ," "); //refresh the element
+    calledNumList.scrollTop = calledNumList.scrollHeight;
 }
 
 function kinhBoard() {
@@ -46,7 +48,7 @@ function genBoard() {
     let chosenBoard = preBoardList[chosenNum];
     console.log(`Board ${chosenNum} activated.`);
 
-    for (let r = 0; r < 9; r++){
+    for (let r = 0; r < 9; r++) {
         boardNums[r] = []; //Declare that this is 2 dimensional Array
 
         // let filledLeft = 0;
@@ -109,7 +111,7 @@ function genBoard() {
                 if (c == 0) {
                     boardNums[r][c] = genNonRepeatedNum(spawnedNum, c*10 + 1, c*10 + 9);
                 }
-                else if (c == 8){
+                else if (c == 8) {
                     boardNums[r][c] = genNonRepeatedNum(spawnedNum, c*10, c*10 + 10);
                 }
                 else {
@@ -128,7 +130,7 @@ function genBoard() {
 } 
 
 function clrBoard() {
-    for (let r = 0; r < 9; r++){
+    for (let r = 0; r < 9; r++) {
         for (let c = 0; c < 9; c++) { //Clear the markers 
             row[r].children[c].classList.remove("selected");
         }
@@ -137,12 +139,12 @@ function clrBoard() {
 
 function newGame() {
     clrBoard();
-    for (var keys in calledNums){
-        if (calledNums.hasOwnProperty(keys)){
+    for (var keys in calledNums) {
+        if (calledNums.hasOwnProperty(keys)) {
             delete calledNums[keys];
         }
     }
-    document.getElementById("calledList").innerHTML = (calledNums+[]).replaceAll("," ," ");
+    calledNumList.innerHTML = (calledNums+[]).replaceAll("," ," ");
 }
 
 
@@ -222,7 +224,7 @@ function genNumForCalling(mainArr, extArr) {
 }
 
 
-function randFromTo(min, max){
+function randFromTo(min, max) {
     return Math.floor( Math.random() * (max-min+1) + min );
     //To genereate a number between 0-1
     // Math.random();
@@ -235,6 +237,150 @@ function randFromTo(min, max){
     //the + 1 makes it so its not 0.
 }
 
+const preBoardList = [
+    [
+        [1, 2, 4, 6, 7],
+        [0, 2, 3, 5, 7],
+        [1, 3, 5, 6, 8],
+
+        [0, 2, 5, 6, 8],
+        [1, 3, 4, 7, 8],
+        [0, 1, 4, 5, 7],
+
+        [1, 2, 4, 5, 7],
+        [0, 3, 4, 6, 8],
+        [0, 2, 3, 6, 8]
+    ],
+    // B1
+
+
+    [
+        [0, 1, 4, 6, 8],
+        [1, 3, 4, 6, 7],
+        [0, 2, 3, 5, 7],
+
+        [0, 2, 4, 6, 7],
+        [1, 3, 5, 6, 8],
+        [1, 3, 4, 7, 8],
+
+        [1, 2, 5, 7, 9],
+        [1, 3, 4, 6, 8],
+        [0, 2, 3, 5, 6]
+    ],
+    // B2
+
+
+    [
+        [1, 2, 4, 6, 7],
+        [0, 2, 3, 5, 7],
+        [1, 3, 5, 6, 8],
+
+        [0, 2, 5, 6, 8],
+        [1, 3, 4, 7, 8],
+        [0, 1, 4, 5, 7],
+
+        [1, 2, 4, 5, 7],
+        [0, 3, 4, 6, 8],
+        [0, 2, 3, 6, 8]
+    ],
+    // B3
+
+
+    [
+        [1, 2, 4, 6, 7],
+        [0, 2, 3, 5, 7],
+        [1, 3, 5, 6, 8],
+
+        [0, 2, 5, 6, 8],
+        [1, 3, 4, 7, 8],
+        [0, 1, 4, 5, 7],
+
+        [1, 2, 4, 5, 7],
+        [0, 3, 4, 6, 8],
+        [0, 2, 3, 6, 8]
+    ],
+    // B4
+
+        
+    [
+        [1, 2, 4, 6, 7],
+        [0, 2, 3, 5, 7],
+        [1, 3, 5, 6, 8],
+
+        [0, 2, 5, 6, 8],
+        [1, 3, 4, 7, 8],
+        [0, 1, 4, 5, 7],
+
+        [1, 2, 4, 5, 7],
+        [0, 3, 4, 6, 8],
+        [0, 2, 3, 6, 8]
+    ],
+    // B5
+
+
+    [
+        [1, 2, 4, 6, 7],
+        [0, 2, 3, 5, 7],
+        [1, 3, 5, 6, 8],
+
+        [0, 2, 5, 6, 8],
+        [1, 3, 4, 7, 8],
+        [0, 1, 4, 5, 7],
+
+        [1, 2, 4, 5, 7],
+        [0, 3, 4, 6, 8],
+        [0, 2, 3, 6, 8]
+    ],
+    // B6
+
+
+    [
+        [1, 2, 4, 6, 7],
+        [0, 2, 3, 5, 7],
+        [1, 3, 5, 6, 8],
+
+        [0, 2, 5, 6, 8],
+        [1, 3, 4, 7, 8],
+        [0, 1, 4, 5, 7],
+
+        [1, 2, 4, 5, 7],
+        [0, 3, 4, 6, 8],
+        [0, 2, 3, 6, 8]
+    ],
+    // B7
+
+
+    [
+        [1, 2, 4, 6, 7],
+        [0, 2, 3, 5, 7],
+        [1, 3, 5, 6, 8],
+
+        [0, 2, 5, 6, 8],
+        [1, 3, 4, 7, 8],
+        [0, 1, 4, 5, 7],
+
+        [1, 2, 4, 5, 7],
+        [0, 3, 4, 6, 8],
+        [0, 2, 3, 6, 8]
+    ],
+    //B8
+
+
+    [
+        [1, 2, 4, 6, 7],
+        [0, 2, 3, 5, 7],
+        [1, 3, 5, 6, 8],
+
+        [0, 2, 5, 6, 8],
+        [1, 3, 4, 7, 8],
+        [0, 1, 4, 5, 7],
+
+        [1, 2, 4, 5, 7],
+        [0, 3, 4, 6, 8],
+        [0, 2, 3, 6, 8]
+    ],
+    // B9
+]
 
 // Chúc mọi người 1 năm 2022 vui vẻ, đong đầy niềm vui trong cuộc sống và tràn ngập hạnh phúc bên gia đình cùng người thân và bạn bè, các mối quan hệ ngày càng mở rộng theo chiều hướng chất lượng đi đầu, khối lượng ngay sau.
 
