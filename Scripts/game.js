@@ -1,4 +1,4 @@
-// export { callNum, kinhBoard, genBoard, clrBoard, newGame } //Export all functions
+// export { callNum, kinhBoard, genBoard, clearBoard, newGame } //Export all functions
 
 const board = document.querySelector("#mainContainer");
 const row = document.querySelectorAll('.row');
@@ -51,21 +51,13 @@ function genBoard() {
     for (let r = 0; r < 9; r++) {
         boardNums[r] = []; //Declare that this is 2 dimensional Array
 
-        // let filledLeft = 0;
-        // let emptiedLeft = 4;
-        // let doubleEmptiedLeft = 1;
-
         for (let c = 0; c < 9; c++) { //Reset the board 
             boardNums[r][c] = "";
             row[r].children[c].innerHTML = boardNums[r][c];
             cellEmpty(row[r].children[c]);
         }
 
-
-
-        let calledIndexes = chosenBoard[r]; //this shit reset every row
-
-
+        let calledIndexes = chosenBoard[r]; //this shit reset every roư
 
         let tempoText = `Row ${r}:`;
     
@@ -98,6 +90,7 @@ function genBoard() {
         // Hey, I'm fuking tired, how about making preBoards and then learn Algorithms later?
         // Good idea... let's.
         //Why am I here just to suffer to the fact that I am not capable of doing this Project?
+        //Let's just keep this section for entertainment - Marco, Jan 2023
 
         calledIndexes.sort(); //Fuck off, I dont need u anymore
         
@@ -129,7 +122,7 @@ function genBoard() {
     console.log(boardNums);
 } 
 
-function clrBoard() {
+function clearBoard() {
     for (let r = 0; r < 9; r++) {
         for (let c = 0; c < 9; c++) { //Clear the markers 
             row[r].children[c].classList.remove("selected");
@@ -138,7 +131,7 @@ function clrBoard() {
 }
 
 function newGame() {
-    clrBoard();
+    clearBoard();
     for (var keys in calledNums) {
         if (calledNums.hasOwnProperty(keys)) {
             delete calledNums[keys];
@@ -184,14 +177,6 @@ function ModalActivating(modal) {
     }
 }
 
-// closeModalList.forEach(btn => {
-//     btn.addEventListener("click", () => {
-//         //console.log(`${btn.parentElement}`);
-//         closeModal(document.querySelector(`#${btn.parentElement.parentElement.id}`));
-//     })
-// })
-
-
 
 
 
@@ -206,10 +191,7 @@ function genNonRepeatedNum(arr, startNum, endNum) {
     
     for (let k = 0; k < arr.length; k++) { //Check repeated
         if (arr[k] == num) {
-            //console.log(`Reset cuz ${num} = arr[${k}]`);
-            //console.log(`${arr[k]} repeated`)
             num = randFromTo(startNum, endNum);
-            //console.log(`New num is ${num}`)
             k = -1; //Reset the counter to -1 because if k is 0 then when for-loop looped, k++ will be 1 and miss the 1st element(k = 0)
         }
     }
@@ -220,7 +202,6 @@ function genNumForCalling(mainArr, extArr) {
     let thatNum = randFromTo(0, extArr.length - 1);
     mainArr.push(extArr[thatNum]);
     extArr.splice(extArr.indexOf(extArr[thatNum]), 1);
-    
 }
 
 
@@ -236,156 +217,3 @@ function randFromTo(min, max) {
     // Math.floor(Math.random() * 10) + 1 
     //the + 1 makes it so its not 0.
 }
-
-// const preBoardList = [
-//     [
-//         [1, 2, 4, 6, 7],
-//         [0, 2, 3, 5, 7],
-//         [1, 3, 5, 6, 8],
-
-//         [0, 2, 5, 6, 8],
-//         [1, 3, 4, 7, 8],
-//         [0, 1, 4, 5, 7],
-
-//         [1, 2, 4, 5, 7],
-//         [0, 3, 4, 6, 8],
-//         [0, 2, 3, 6, 8]
-//     ],
-//     // B1
-
-
-//     [
-//         [0, 1, 4, 6, 8],
-//         [1, 3, 4, 6, 7],
-//         [0, 2, 3, 5, 7],
-
-//         [0, 2, 4, 6, 7],
-//         [1, 3, 5, 6, 8],
-//         [1, 3, 4, 7, 8],
-
-//         [1, 2, 5, 7, 9],
-//         [1, 3, 4, 6, 8],
-//         [0, 2, 3, 5, 6]
-//     ],
-//     // B2
-
-
-//     [
-//         [1, 2, 4, 6, 7],
-//         [0, 2, 3, 5, 7],
-//         [1, 3, 5, 6, 8],
-
-//         [0, 2, 5, 6, 8],
-//         [1, 3, 4, 7, 8],
-//         [0, 1, 4, 5, 7],
-
-//         [1, 2, 4, 5, 7],
-//         [0, 3, 4, 6, 8],
-//         [0, 2, 3, 6, 8]
-//     ],
-//     // B3
-
-
-//     [
-//         [1, 2, 4, 6, 7],
-//         [0, 2, 3, 5, 7],
-//         [1, 3, 5, 6, 8],
-
-//         [0, 2, 5, 6, 8],
-//         [1, 3, 4, 7, 8],
-//         [0, 1, 4, 5, 7],
-
-//         [1, 2, 4, 5, 7],
-//         [0, 3, 4, 6, 8],
-//         [0, 2, 3, 6, 8]
-//     ],
-//     // B4
-
-        
-//     [
-//         [1, 2, 4, 6, 7],
-//         [0, 2, 3, 5, 7],
-//         [1, 3, 5, 6, 8],
-
-//         [0, 2, 5, 6, 8],
-//         [1, 3, 4, 7, 8],
-//         [0, 1, 4, 5, 7],
-
-//         [1, 2, 4, 5, 7],
-//         [0, 3, 4, 6, 8],
-//         [0, 2, 3, 6, 8]
-//     ],
-//     // B5
-
-
-//     [
-//         [1, 2, 4, 6, 7],
-//         [0, 2, 3, 5, 7],
-//         [1, 3, 5, 6, 8],
-
-//         [0, 2, 5, 6, 8],
-//         [1, 3, 4, 7, 8],
-//         [0, 1, 4, 5, 7],
-
-//         [1, 2, 4, 5, 7],
-//         [0, 3, 4, 6, 8],
-//         [0, 2, 3, 6, 8]
-//     ],
-//     // B6
-
-
-//     [
-//         [1, 2, 4, 6, 7],
-//         [0, 2, 3, 5, 7],
-//         [1, 3, 5, 6, 8],
-
-//         [0, 2, 5, 6, 8],
-//         [1, 3, 4, 7, 8],
-//         [0, 1, 4, 5, 7],
-
-//         [1, 2, 4, 5, 7],
-//         [0, 3, 4, 6, 8],
-//         [0, 2, 3, 6, 8]
-//     ],
-//     // B7
-
-
-//     [
-//         [1, 2, 4, 6, 7],
-//         [0, 2, 3, 5, 7],
-//         [1, 3, 5, 6, 8],
-
-//         [0, 2, 5, 6, 8],
-//         [1, 3, 4, 7, 8],
-//         [0, 1, 4, 5, 7],
-
-//         [1, 2, 4, 5, 7],
-//         [0, 3, 4, 6, 8],
-//         [0, 2, 3, 6, 8]
-//     ],
-//     //B8
-
-
-//     [
-//         [1, 2, 4, 6, 7],
-//         [0, 2, 3, 5, 7],
-//         [1, 3, 5, 6, 8],
-
-//         [0, 2, 5, 6, 8],
-//         [1, 3, 4, 7, 8],
-//         [0, 1, 4, 5, 7],
-
-//         [1, 2, 4, 5, 7],
-//         [0, 3, 4, 6, 8],
-//         [0, 2, 3, 6, 8]
-//     ],
-//     // B9
-// ]
-
-console.log("just to sep");
-
-// Chúc mọi người 1 năm 2022 vui vẻ, đong đầy niềm vui trong cuộc sống và tràn ngập hạnh phúc bên gia đình cùng người thân và bạn bè, các mối quan hệ ngày càng mở rộng theo chiều hướng chất lượng đi đầu, khối lượng ngay sau.
-
-// Chúc mọi người sẽ luôn được đồng hành với những con người thật sự xứng đáng trên con đường đời của mình, sẽ luôn nhìn ra được cơ hội hiện hữu quanh mình để phát triển bản thân, thăng tiến trong công việc.
-
-// Và quan trọng nhất là sẽ luôn hạnh phúc và cảm thấy không hối hận với những quyết định mà bản thân mình đã đưa ra, sẽ luôn sống hết mình để được cảm nhận được cuộc sống tươi đẹp này, luôn là chính mình.

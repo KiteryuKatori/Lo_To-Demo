@@ -143,7 +143,4 @@ const preBoardList = [
         [0, 2, 3, 6, 8]
     ],
     // B9
-
-
-
 ]

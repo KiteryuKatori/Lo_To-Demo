@@ -15,7 +15,6 @@ btnList.childNodes.forEach(btn => {
 
 closeModalList.forEach(btn => {
     btn.addEventListener("click", () => {
-        //console.log(`${btn.parentElement}`);
         removeActive(document.querySelector(`#${btn.parentElement.parentElement.id}`));
     })
 })
@@ -28,7 +27,6 @@ function removeActive(modal) {
 function addActive(modal) {
     modal.parentElement.classList.add("active");
     modal.classList.add("active");
-    // console.log(`${modal} activated`);
 }
 
 // pane.forEach(panel => {
