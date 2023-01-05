@@ -4,8 +4,8 @@
     --button-width: 175px;
     --button-height: 60px;
 
-    --bg-color: rgb(224, 255, 224);
-    --main-bg-color: rgb(144, 244, 144);
+    --bg-color: rgb(199, 255, 199);
+    --main-bg-color: rgb(132, 238, 132);
     --main-color: rgb(95, 206, 95);
 
     --main-modal-color: rgb(68, 160, 114);
@@ -31,9 +31,9 @@ body {
     display: block;
     margin-top: 50px;
     width: 320px;
-    height: 480px;
     text-align: center;
     border-radius: 8px;
+    padding: 36px 0;
 }
 
 /*GLOBAL BUTTON SETTINGS*/
@@ -214,14 +214,14 @@ button:active:before {
     /* background-color: blueviolet; */
 }
 
-.modal .modalContent {
+.modal .modal_content {
     margin: 12px 5% 20px 5%;
     /* background-color: black; */
     text-align: left;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
-.modal #guide .modalContent p {
+.modal #guide .modal_content p {
     margin-bottom: 12px;
     font-size: 18px;
 }
@@ -236,7 +236,7 @@ button:active:before {
 }
 
 /* .modal#aboutModal, */
-.modalContent button{
+.modal_content button{
     border-radius: 4px;
     width: calc(100% - 8px);
     height: 100px;
@@ -244,29 +244,29 @@ button:active:before {
 }
 
 /* .modal#aboutModal, */
-.modalContent button a{
+.modal_content button a{
     color: var(--main-color);
     text-decoration: none;
     transition: ease 300ms;
 }
 
 /* .modal#aboutModal, */
-.modalContent button a i.ti-github{
+.modal_content button a i.ti-github{
     margin-right: 12px;
 }
 
 /* .modal#aboutModal, */
-.modalContent button a i{
+.modal_content button a i{
     margin-right: 4px;
 }
 
 /* .modal#aboutModal, */
-.modalContent button:hover:before, .modal#aboutModal .modalContent button a:hover:before{
+.modal_content button:hover:before, .modal#aboutModal .modal_content button a:hover:before{
     width: 350px;
     height: 350px;
 }
 
 /* .modal#aboutModal, */
-.modalContent button:hover a{
+.modal_content button:hover a{
     color: white;
 }

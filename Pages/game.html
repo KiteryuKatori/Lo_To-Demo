@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <!--Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="../Stylings/gameMobile.css"></link>
+    <link rel="stylesheet" type="text/css" href="../Stylings/gameMobile.css">
 
     <!-- ThemifyIcons -->
     <link rel="stylesheet" href="..\Assets\icons\themify-icons\themify-icons.css">
@@ -22,8 +22,8 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-    <script src = "../Scripts/game.js" type="text/javascript"></script>
-    <script src = "../Scripts/preBoards.js" type="module"></script>
+    <!-- <script src = "../Scripts/game.js" type="text/javascript"></script> -->
+    <!-- <script src = "../Scripts/preBoards.js" type="module"></script> -->
 </head>
 <body>
     <!-- Code của Phan Vũ Tuấn Anh, nhớ để nguồn nhé C: -->
@@ -154,7 +154,7 @@
             <nav class="navBar-ver">
                 <div class="calling">
                     <button class="callBtn" onclick="callNum()">Gọi</button>
-                    <div id="calledList"></div>
+                    <div id="calledList">something</div>
                 </div>
                 <button class="kinhBoard" onclick="kinhBoard()">Kinh
                     <!-- https://www.facebook.com/phanvutuananh241203 -->
@@ -172,8 +172,8 @@
                 <div class="closeModalBtn"></div>
             </div>
 
-            <div class="modalContent">
-                <p>Cũng không có gì đặc biệt cho lắm nên các bạn vào đây(s) nhé</p>
+            <div class="modal_content">
+                <p>Cũng không có gì đặc biệt cho lắm nên các bạn vào đây nhé</p>
                 <button><a href="https://www.facebook.com/phanvutuananh241203"><i class="ti-facebook"></i> Facebook</a></button>
                 <button><a href="https://github.com/KiteryuKatori"><i class="ti-github"></i>Github</a></button>
                 <button><a href="https://drive.google.com/file/d/1EDg2ujhz0E0BAZtA8jR4wnMBjFe7dm7T/view?usp=sharing" style="font-size: 20px; padding: 0px 12px;"><i class="ti-info-alt"></i>Đây là chiếc CV gần nhất của tớ cho ai muốn coi</a></button>
@@ -188,5 +188,7 @@
 
     <!-- <p id="testingCalledNum" onclick="pushEle()">Testing</p> -->
     <!-- https://www.facebook.com/phanvutuananh241203 -->
+    <script src = "../Scripts/preBoards.js" type="text/javascript"></script>
+    <script src = "../Scripts/game.js" type="text/javascript"></script>
 </body>
 </html>

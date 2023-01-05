@@ -7,25 +7,25 @@ const closeModalList = document.querySelectorAll(".closeModalBtn");
 btnList.childNodes.forEach(btn => {
     btn.addEventListener("click", () => {
         let modalID = btn.id.slice(0, -3)+ "Modal";
-        // openModal(document.getElementById(`${modalID}`));
+        // addActive(document.getElementById(`${modalID}`));
         // Không nên bởi vì display: none thì getElementById như bỏ-> query cho an toàn
-        openModal(document.querySelector(`#${modalID}`));
+        addActive(document.querySelector(`#${modalID}`));
     })
 })
 
 closeModalList.forEach(btn => {
     btn.addEventListener("click", () => {
         //console.log(`${btn.parentElement}`);
-        closeModal(document.querySelector(`#${btn.parentElement.parentElement.id}`));
+        removeActive(document.querySelector(`#${btn.parentElement.parentElement.id}`));
     })
 })
 
-function closeModal(modal) {
+function removeActive(modal) {
     modal.parentElement.classList.remove("active");
     modal.classList.remove("active");
 }
 
-function openModal(modal) {
+function addActive(modal) {
     modal.parentElement.classList.add("active");
     modal.classList.add("active");
     // console.log(`${modal} activated`);
