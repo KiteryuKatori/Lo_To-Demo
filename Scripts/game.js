@@ -37,7 +37,19 @@ function callNum() {
 
 function kinhBoard() {
     const modal = 0;
-    ModalActivating(modal);
+    console.log("Player Kinh-ed, nothing special");
+    // ModalActivating(modal);
+}
+
+function changeNum() {
+    console.log("Player want to change nums")
+    clearBoard();
+    for (var keys in calledNums) {
+        if (calledNums.hasOwnProperty(keys)) {
+            delete calledNums[keys];
+        }
+    }
+    calledNumList.innerHTML = (calledNums+[]).replaceAll("," ," ");
 }
 
 function genBoard() {
@@ -123,6 +135,7 @@ function genBoard() {
 } 
 
 function clearBoard() {
+    console.log("Player cleared");
     for (let r = 0; r < 9; r++) {
         for (let c = 0; c < 9; c++) { //Clear the markers 
             row[r].children[c].classList.remove("selected");
@@ -130,15 +143,7 @@ function clearBoard() {
     }
 }
 
-function newGame() {
-    clearBoard();
-    for (var keys in calledNums) {
-        if (calledNums.hasOwnProperty(keys)) {
-            delete calledNums[keys];
-        }
-    }
-    calledNumList.innerHTML = (calledNums+[]).replaceAll("," ," ");
-}
+
 
 
 
@@ -166,7 +171,6 @@ function cellSelect(cell) {
 }
 
 function ModalActivating(modal) {
-    
     if(!modal.classList.contains("active")) {
         modal.classList.add("active");
         modal.parentElement.add("active");
@@ -177,8 +181,14 @@ function ModalActivating(modal) {
     }
 }
 
+// callNum()
+// kinhBoard()
+// genBoard()
+// changeNum()
 
-
+function helpModal(){
+    console.log("Player needs help");
+}
 
 // SMOL FUNCTIONS
 function genNonRepeatedNum(arr, startNum, endNum) {

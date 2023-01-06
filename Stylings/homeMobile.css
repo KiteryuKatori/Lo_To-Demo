@@ -184,19 +184,18 @@ button:active:before {
 
 .modal .modalHeader .closeModalBtn{
     position: relative;
-    /* background-color: rgb(252, 97, 86); */
     float: right;
-    right: -8px;
-    top: -4px;
-    margin: -84px 8px 0 0;
-    width: 32px;
-    height: 32px;
-    border-radius: 4px;
+    padding: 4px;
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
     cursor: pointer;
+    /* background-color: rgb(252, 97, 86); */
 }
 
 .modal .modalHeader .closeModalBtn:hover {
     background-color: rgb(252, 97, 86);
+    transition: ease 300ms;
 }
 
 .modal .modalHeader .closeModalBtn::before, .modal .modalHeader .closeModalBtn::after{
@@ -215,10 +214,25 @@ button:active:before {
 }
 
 .modal .modal_content {
-    margin: 12px 5% 20px 5%;
+    margin: 12px 4px 16px 24px;
     /* background-color: black; */
     text-align: left;
-    overflow-y: scroll;
+    overflow-y: auto;
+}
+
+/* MODAL SCROLL BAR */
+.modal .modal_content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal .modal_content::-webkit-scrollbar-track {
+    background: rgb(146, 187, 158);
+    border-radius: 10px;
+}
+
+.modal .modal_content::-webkit-scrollbar-thumb {
+    background: rgb(59, 117, 77);
+    border-radius: 10px;
 }
 
 .modal #guide .modal_content p {
